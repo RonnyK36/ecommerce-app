@@ -1,0 +1,21 @@
+.not-found-container {
+  margin-top: 40vh;
+  padding: 20px;
+  justify-content: center;
+  text-align: center;
+}
+.not-found-title {
+  font-size: 50px;
+  font-style: bold;
+  margin-bottom: 10px;
+  
+  
+}
+
+
+.not-found-message {
+  margin-top: 15px;
+  font-size: 24px;
+  color: grey;
+ 
+}
