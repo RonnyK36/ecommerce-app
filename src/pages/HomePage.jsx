@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { Header } from '../components/Header'
 import './HomePage.css'
-import { products } from '../data/products'
+
 
 export function HomePage ()
 {
@@ -24,10 +25,23 @@ export function HomePage ()
   // })
 
   // Using axios for cleaner code
-  axios.get('http://localhost:3000/api/products').then((response) =>
+
+  const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() =>
   {
-    console.log(response.data)
-  })
+    axios.get('http://localhost:3000/api/products').then((response) =>
+    {
+      setProducts(response.data)
+    })
+
+    axios.get('http://localhost:3000/api/cart-items').then((response) =>
+    {
+      setCartItems(response.data)
+    })
+  }, [])
+
 
   return (<>
 
@@ -35,7 +49,8 @@ export function HomePage ()
 
     <title>Ecommerce Project</title>
 
-    <Header />
+    <Header cartItems=
+      {cartItems} />
 
     <div className="home-page">
       <div className="products-grid">
