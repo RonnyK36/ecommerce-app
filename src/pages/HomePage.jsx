@@ -4,7 +4,7 @@ import { Header } from '../components/Header'
 import './HomePage.css'
 
 
-export function HomePage ()
+export function HomePage ({ cartItems })
 {
   // Normal way of fetching data from backend
   // fetch('http://localhost:3000/api/products').then((response) =>
@@ -27,20 +27,17 @@ export function HomePage ()
   // Using axios for cleaner code
 
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+
 
   useEffect(() =>
   {
     axios.get('/api/products').then((response) =>
     {
       setProducts(response.data)
-    })
+    }), []
+  });
 
-    axios.get('/api/cart-items').then((response) =>
-    {
-      setCartItems(response.data)
-    })
-  }, [])
+
 
 
   return (<>
