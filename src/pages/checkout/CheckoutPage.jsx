@@ -13,7 +13,6 @@ export function CheckoutPage ({ cartItems })
     const [deliveryOptions, setDeliveryOptions] = useState([]);
     const [paymentSummary, setPaymentSummary] = useState(null);
 
-    useEffect(() => { });
 
     useEffect(() =>
     {
